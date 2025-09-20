@@ -9,7 +9,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r, warning = FALSE}
 library(moderndive)
 library(ggplot2)
 data("early_january_weather")
@@ -21,9 +21,9 @@ ggsave("time vs tempplot.pdf")
 
 #Problem 1
 
-This dataset contains NYC weather condition for JAN 1 - 15.The variables in these data set are `r paste(names(weather))` and I think the key variable is temp: temperature of NYC with a mean of `r mean(weather$temp)`(39.58212). And time_hour is also important to keep the recording time, and we also have other var for winds and air condition. It has `r nrow(weather)` (358)rows and `r ncol(weather)`(!5) coloums total. For the plot, it shows that the weather is going up as time grows, it is very reasonable and the peak is caused by the day and night. And the humidity is a little higher when the temp goes down. 
+This dataset contains NYC weather condition for JAN 1 - 15.The variables in these data set are `r paste(names(weather))` and I think the key variable is temp: temperature of NYC with a mean of `r mean(weather$temp)`. And time_hour is also important to keep the recording time, and we also have other var for winds and air condition. It has `r nrow(weather)` rows and `r ncol(weather)` coloums total. For the plot, it shows that the weather is going up as time grows, it is very reasonable and the peak is caused by the day and night. And the humidity is a little higher when the temp goes down. 
 
-```{r}
+```{r,warning = FALSE}
 library(tidyverse)
 set.seed(1234)
 dataframe <- tibble(
@@ -37,11 +37,13 @@ mean(pull(dataframe, logic))
 mean(pull(dataframe, char))
 mean(pull(dataframe, factor))
 ```
+
 ```{r, eval = FALSE}
 as.numeric(dataframe$logic)
 as.numeric(dataframe$char)
 as.numeric(dataframe$factor)
 ```
+
 #Problem 2
 
 We can find that at first we pull the mean value, only the sample and logic variable returned a valid numbers, while the other two returns warning that they are neither numeric nor logic value. But after I turn them into numeric value, I got 1s and 0s for logic value, the characters in char value, and repeat of 1,2,3 for factor value.  The reason is shown that we will need a numeric or logic value to pull the mean. And logic value is only true or false so you can always take it as a number, but you can't take the mean for characters or vectors, you may need to transfer it into numbers first.
