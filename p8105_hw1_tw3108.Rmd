@@ -21,6 +21,17 @@ ggsave("time vs tempplot.pdf")
 
 #Problem 1
 
-This dataset contains NYC weather conditon for JAN 1 - 15.The variables in these data set are `r paste(names(weather))` and I think the key variable is temp: temperature of NYC with a mean of `r mean(weather$temp)`. And time_hour is also important to keep the recording time, and we also have other var for winds and air condition. It has `r nrow(weather)` rows and `r ncol(weather)` coloums total.
+This dataset contains NYC weather condition for JAN 1 - 15.The variables in these data set are `r paste(names(weather))` and I think the key variable is temp: temperature of NYC with a mean of `r mean(weather$temp)`(39.58212). And time_hour is also important to keep the recording time, and we also have other var for winds and air condition. It has `r nrow(weather)` (358)rows and `r ncol(weather)`(!5) coloums total. For the plot, it shows that the weather is going up as time grows, it is very reasonable and the peak is caused by the day and night. And the humidity is a little higher when the temp goes down. 
+
+```{r}
+library(tidyverse)
+set.seed(1234)
+dataframe <- tibble(
+  sample = rnorm(10),
+  logic = sample > 0,
+  char = c("1","2","1","2","1","3","1","5","1","2"),
+  factor = factor(rep(c("low","med","high"), length.out = 10),levels = c("low","med","high"))
+)
+```
 
 
