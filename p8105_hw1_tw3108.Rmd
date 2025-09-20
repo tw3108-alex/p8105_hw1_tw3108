@@ -32,6 +32,17 @@ dataframe <- tibble(
   char = c("1","2","1","2","1","3","1","5","1","2"),
   factor = factor(rep(c("low","med","high"), length.out = 10),levels = c("low","med","high"))
 )
+mean(pull(dataframe, sample))
+mean(pull(dataframe, logic))
+mean(pull(dataframe, char))
+mean(pull(dataframe, factor))
 ```
+```{r, eval = FALSE}
+as.numeric(dataframe$logic)
+as.numeric(dataframe$char)
+as.numeric(dataframe$factor)
+```
+#Problem 2
 
+We can find that at first we pull the mean value, only the sample and logic variable returned a valid numbers, while the other two returns warning that they are neither numeric nor logic value. But after I turn them into numeric value, I got 1s and 0s for logic value, the characters in char value, and repeat of 1,2,3 for factor value.  The reason is shown that we will need a numeric or logic value to pull the mean. And logic value is only true or false so you can always take it as a number, but you can't take the mean for characters or vectors, you may need to transfer it into numbers first.
 
