@@ -1,0 +1,21 @@
+---
+title: "p8105_hw1_tw3108"
+author: "Tao Wu"
+date: "2025-09-20"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(moderndive)
+data("early_january_weather")
+weather <- early_january_weather
+```
+
+#Problem 1
+
+This dataset contains NYC weather conditon for JAN 1 - 15.The variables in these data set are `r paste(names(weather))` and I think the key variable is temp: temperature of NYC with a mean of `r mean(weather$temp)`. And time_hour is also important to keep the recording time, and we also have other var for winds and air condition. It has `r nrow(weather)` rows and `r ncol(weather)` coloums total.
+
