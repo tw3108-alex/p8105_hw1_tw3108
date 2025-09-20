@@ -9,7 +9,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, warning = FALSE}
+```{r, warning = FALSE,message=FALSE}
 library(moderndive)
 library(ggplot2)
 data("early_january_weather")
@@ -23,7 +23,7 @@ ggsave("time vs tempplot.pdf")
 
 This dataset contains NYC weather condition for JAN 1 - 15.The variables in these data set are `r paste(names(weather))` and I think the key variable is temp: temperature of NYC with a mean of `r mean(weather$temp)`. And time_hour is also important to keep the recording time, and we also have other var for winds and air condition. It has `r nrow(weather)` rows and `r ncol(weather)` coloums total. For the plot, it shows that the weather is going up as time grows, it is very reasonable and the peak is caused by the day and night. And the humidity is a little higher when the temp goes down. 
 
-```{r,warning = FALSE}
+```{r,warning = FALSE,message=FALSE}
 library(tidyverse)
 set.seed(1234)
 dataframe <- tibble(
